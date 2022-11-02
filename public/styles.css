@@ -1,0 +1,29 @@
+
+.homeDescription {
+    float: right;
+    padding-right: 100px;
+}
+
+.homeImage{
+    float: left;
+    padding-left: 50px;
+}
+
+.homeButton{
+    position: relative;
+    left: 30px;
+}
+
+.contactText{
+    align-items: center;
+    text-align: center;
+}
+
+.aboutText{
+    text-align: center;
+}
+
+.aboutDetail{
+    text-align: justify;
+}
+
