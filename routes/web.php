@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Perfume;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,64 +14,37 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home', [
+Route::view('/','home',
+    [
         "mainText" => "Our Latest Perfume Product",
         "description" => "Try out our newest product, it is wangi",
         "extradescription" => "This sweet is what you need."
-    ]);
-});
+    ]
+);
 
-Route::get('/about', function () {
-    return view('about', [
-        "mainText" => "Our Latest Perfume Product",
-        "description" => "Try out our newest product, it is wangi"
-    ]);
-});
-
-Route::get('/contact', function () {
-    return view('contact', [
-        "mainText" => "Contact Us",
-        "phoneNumber" => "0887-3846-985",
-    ]);
-});
-
-Route::get('/product', function () {
-    return view('products', [
-    ]);
-});
-
-Route::view(
-    '/about',
-    'about',
+Route::view('/about', 'about',
     [
         "pagetitle" => "About Us",
     ]
 );
 
-Route::view(
-    '/contact',
-    'contact',
+Route::view('/contact', 'contact',
     [
         "mainText" => "Contact Us",
         "phoneNumber" => "0887-3846-985",
     ]
 );
 
-Route::view(
-    '/home',
-    'home',
+Route::view('/product', 'products',
     [
-        "mainText" => "Heshe Perfume",
-        "description" => "Missing Elf.",
-        "extradescription" => "This sweet is what you need."
+        "mainText" => "Our Product",
+        "perfumes" => Perfume::index()
     ]
 );
 
-Route::view(
-    '/product',
-    'products',
-    [
-        "mainText" => "Our Product"
-    ]
-);
+Route::get('product/{id}', function($id){
+    return view('products', [
+        'pagetitle' => 'Product',
+        'perfumes' => Perfume::showWriter($id)
+    ]);
+});

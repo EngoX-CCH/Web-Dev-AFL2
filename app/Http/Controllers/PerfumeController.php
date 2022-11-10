@@ -9,18 +9,14 @@ class PerfumeController extends Controller{
     public function index(){
         return view('index', [
             'pagetitle' => 'Our Products',
-            'perfumes' => Perfume::All()
+            'perfumes' => Perfume::index()
         ]);
     }
 
-    public function show(Perfume $perfume){
-
-        // $writer = Writer::find($id);
-
+    public function show($id){
         return view('show', [
             'pagetitle' => 'Product Details',
-            //'maintitle' => 'The writer',
-            'perfumes' => $perfume
+            'perfumes' => Perfume::showPerfume($id)
         ]);
     }
 }

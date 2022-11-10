@@ -1,9 +1,14 @@
 <?php
 
 namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+
 class Perfume extends Model{
+
+    use HasFactory;
 
     protected $fillable = [
         "name",
@@ -33,6 +38,6 @@ class Perfume extends Model{
 
     public static function showPerfume($id){
         return self::index()->firstWhere('id', $id);
-        
+
     }
 }

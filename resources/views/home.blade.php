@@ -11,15 +11,15 @@
         <h3>{{$extradescription}}</h3>
         <br>
         <br>
-        <button type="button" class="btn btn-dark">See product <a href="/about">HERE!</a></button>
+        <button type="button" class="btn btn-dark">See product <a href="/product">HERE!</a></button>
     </div>
 
 
-    
+
     <div class="homeImage">
         <img src="images/client_perfume.jpg" width="400" height="400">
     </div>
-    
+
 </body>
 
 @endsection
